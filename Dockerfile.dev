@@ -1,9 +1,10 @@
 FROM node:alpine
-
-WORKDIR '/app'
+# workdir where everything in a container created will be stored
+WORKDIR '/app' 
 
 COPY package.json .
 RUN npm install
 
+# copy everything (public/, src/, etc into /app inside of the container)
 COPY . . 
 CMD ["npm", "run", "start"]
